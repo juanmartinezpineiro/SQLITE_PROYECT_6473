@@ -35,9 +35,9 @@ public class insertar {
          * introducir las variables para introducirlas en la tabla Generar los
          * inserts para ambas tablas con sus valores
          */
-        long imei = Long.parseLong(JOptionPane.showInputDialog(null, "Introdice el dni de la persona"));
-        String marca = JOptionPane.showInputDialog(null, "Introduzca su nombre");
-        String operadora = JOptionPane.showInputDialog(null, "Puesto destino");
+        long dni = Long.parseLong(JOptionPane.showInputDialog(null, "Introduce el dni de la persona"));
+        String nombre = JOptionPane.showInputDialog(null, "Introduzca su nombre");
+        String puesto = JOptionPane.showInputDialog(null, "Puesto destino");
         String sql = "INSERT INTO " + tabla + "(dni, nombre) VALUES(?,?)";
         String sql2 = "INSERT INTO " + tabla + "companhias(dni, puesto) VALUES(?,?)";
 /**
@@ -46,8 +46,8 @@ public class insertar {
  */
         try (Connection connect = conn;
                 PreparedStatement pstmt = connect.prepareStatement(sql)) {
-            pstmt.setLong(1, imei);
-            pstmt.setString(2, marca);
+            pstmt.setLong(1, dni);
+            pstmt.setString(2, nombre);
             pstmt.executeUpdate();
             JOptionPane.showMessageDialog(null, "Insertados datos personales");
             System.out.println("1 Fila insertada en " + tabla);
@@ -58,12 +58,12 @@ public class insertar {
  */
             try (Connection connect2 = conn;
                     PreparedStatement pstmt2 = connect2.prepareStatement(sql2)) {
-                pstmt2.setLong(1, imei);
-                pstmt2.setString(2, operadora);
+                pstmt2.setLong(1, dni);
+                pstmt2.setString(2, puesto);
                 pstmt2.execute();
                 JOptionPane.showMessageDialog(null, "Insertados datos de los puestos");
                 System.out.println("1 Fila insertada en " + tabla + "_compañías");
-                            
+                conn.close();           
 
 
             } catch (SQLException e) {
@@ -76,6 +76,7 @@ public class insertar {
             JOptionPane.showMessageDialog(null, "Fallo al introducir, puede ser por el DNI, vuelve a introducirlo");
             System.out.println("no se han insertado filas");
         }
+        
 
     }
 }

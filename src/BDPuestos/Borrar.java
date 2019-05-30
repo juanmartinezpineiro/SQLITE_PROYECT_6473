@@ -51,6 +51,7 @@ public class Borrar {
             JOptionPane.showMessageDialog(null,"1 Fila borrada"); 
                 System.out.println("1 fila borrada en "+tabla + "_compañias");
             connect2.close();
+            conn.close();
             } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }

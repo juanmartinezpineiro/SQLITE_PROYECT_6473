@@ -38,9 +38,14 @@ public class Mostrar {
         try{
             st=cn.createStatement();
             datos=st.executeQuery(consulta);
+            
         }catch(Exception e){
+            
             System.out.println(e.toString());
+            
         }
+        
+        
     return datos;
     }
     

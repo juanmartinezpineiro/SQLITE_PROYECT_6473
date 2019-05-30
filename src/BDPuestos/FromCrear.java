@@ -121,7 +121,7 @@ Boolean si = true;
      * @param sql2 "    "   "   "   "   "   "   "   "   
      */
   String sql = "CREATE TABLE IF NOT EXISTS "+ TextBoxNombr.getText() +"(\n"
-                + "	dni long PRIMARY KEY,\n"
+                + "	dni integer PRIMARY KEY,\n"
                 + "	nombre text NOT NULL);";
     String sql2 = "CREATE TABLE IF NOT EXISTS "+ TextBoxNombr.getText() +"companhias (\n"
                 + "	dni integer PRIMARY KEY,\n"

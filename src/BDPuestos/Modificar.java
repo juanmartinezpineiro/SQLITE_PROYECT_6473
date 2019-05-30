@@ -31,25 +31,27 @@ public class Modificar {
     /**
      * Update data of a tabla specified by the dni
      *
-     * @param dni
+     * @param nombre
      * @param puesto puesto de la compañia que desees cambiar
+     * @param dni
      */
-    public void update(Long dni, String puesto) {
+    public void update(String nombre, int dni) {
         String tabla=JOptionPane.showInputDialog(null,"Intoduce la tabla en la que quieras cambiar los datos");
 
-        String sql = "UPDATE "+tabla+"companhias SET dni = ? , "   
-                + "puesto = ? "
+        String sql = "UPDATE "+tabla+" SET nombre = ?"            
                 + "WHERE dni = ?";
  
         try (Connection conn = this.connect();
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
  
             // set the corresponding param
-            pstmt.setLong(1, dni);
-            pstmt.setString(2, puesto);
+            pstmt.setString(1, nombre);
+            pstmt.setInt(2, dni);
             // update 
             pstmt.executeUpdate();
+            conn.close();
         } catch (SQLException e) {
+            System.out.println("AYUWOKI");
             System.out.println(e.getMessage());
         }
     }

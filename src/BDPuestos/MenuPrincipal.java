@@ -205,11 +205,17 @@ Borrar.eliminar();
 
     private void BModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BModificarActionPerformed
         //Modificar.update2();
-        Modificar app=new Modificar();
-        long dni;
-        String puesto;
-        app.update(dni=Long.parseLong(JOptionPane.showInputDialog(null,"Introduce el DNI para cambiar su puesto")), puesto=JOptionPane.showInputDialog(null,"Introduzca el nombre del nuevo puesto"));
-        
+        int fila = tablaComp.getSelectedRow();
+        if (fila == -1){
+            System.out.println("No hay ninguna fila seleccionada");
+        }else{
+             Modificar app=new Modificar();
+        String nombre=JOptionPane.showInputDialog(null,"Introduce el nombre para modificar");
+       
+        int dni=Integer.parseInt(JOptionPane.showInputDialog(null,"Introduce el dni para modificar"));
+        app.update(nombre,dni);
+        }
+      
     }//GEN-LAST:event_BModificarActionPerformed
 
     private void bMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMostrarActionPerformed
