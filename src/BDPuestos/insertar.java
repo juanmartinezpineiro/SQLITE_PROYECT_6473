@@ -63,7 +63,8 @@ public class insertar {
                 pstmt2.execute();
                 JOptionPane.showMessageDialog(null, "Insertados datos de los puestos");
                 System.out.println("1 Fila insertada en " + tabla + "_compañías");
-                conn.close();           
+              
+                connect2.close();
 
 
             } catch (SQLException e) {
@@ -71,10 +72,11 @@ public class insertar {
                 JOptionPane.showMessageDialog(null, "DNI mal introducido, vuelve a intentarlo");
                 System.out.println("no se han insertado filas");
             }
-        } catch (SQLException e) {
+        } catch (SQLException e){
+//            System.out.println(e.getMessage());
+//            JOptionPane.showMessageDialog(null, "Fallo al introducir, puede ser por el DNI, vuelve a introducirlo");
             System.out.println(e.getMessage());
-            JOptionPane.showMessageDialog(null, "Fallo al introducir, puede ser por el DNI, vuelve a introducirlo");
-            System.out.println("no se han insertado filas");
+//            System.out.println("no se han insertado filas");
         }
         
 

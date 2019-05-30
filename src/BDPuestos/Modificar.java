@@ -51,7 +51,7 @@ public class Modificar {
             pstmt.executeUpdate();
             conn.close();
         } catch (SQLException e) {
-            System.out.println("AYUWOKI");
+            
             System.out.println(e.getMessage());
         }
     }

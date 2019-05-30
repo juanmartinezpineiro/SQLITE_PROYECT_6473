@@ -23,7 +23,7 @@ public class Borrar {
      */
     public static void eliminar(){
     String url = "jdbc:sqlite:a.tabla.db";
-      String tabla=JOptionPane.showInputDialog(null,"Intoduce la tabla en la que quieras introducir los datos");
+      String tabla=JOptionPane.showInputDialog(null,"Intoduce la tabla en la que quieras eliminar los datos");
         Connection conn = null;
         try{
             conn=DriverManager.getConnection(url);
@@ -51,7 +51,8 @@ public class Borrar {
             JOptionPane.showMessageDialog(null,"1 Fila borrada"); 
                 System.out.println("1 fila borrada en "+tabla + "_compañias");
             connect2.close();
-            conn.close();
+            connect.close();
+          
             } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }

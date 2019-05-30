@@ -136,6 +136,7 @@ Boolean si = true;
            obx.setVisible(true);
             this.setVisible(false);
             conn.close();
+           
         } catch (SQLException e) {
             si=false;
                         System.out.println(si);
